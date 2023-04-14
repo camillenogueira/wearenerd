@@ -69,6 +69,27 @@ public static WebDriver driver = null;
 		//Enter Address
 		driver.findElement(By.name("addr")).sendKeys("47 Testing Road");
 		
+		//Enter City
+		driver.findElement(By.name("city")).sendKeys("Dublin");
+		
+		//Enter State
+		driver.findElement(By.name("state")).sendKeys("Dublin");
+		
+		//Enter PIN
+		driver.findElement(By.name("pinno")).sendKeys("123456");
+		
+		//Enter Mobile Number
+		driver.findElement(By.name("telephoneno")).sendKeys("1234567");
+		
+		//Enter Email
+		driver.findElement(By.name("emailid")).sendKeys("adam9871@guru.ie");
+		
+		//Enter Password
+		driver.findElement(By.name("password")).sendKeys("1234567");
+		
+		//Click on Submit
+		driver.findElement(By.name("sub")).click();
+		
 		
 	}
 	

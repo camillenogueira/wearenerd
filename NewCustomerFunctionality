@@ -60,6 +60,7 @@ public static WebDriver driver = null;
 		driver.get("https://demo.guru99.com/v4/manager/addcustomerpage.php");
 		
 		String customerName = "Nath";
+		String dob = "01/01/1991";
 		
 		//Gerando numeros aleatorios
 		Random rand = new Random();
@@ -71,7 +72,12 @@ public static WebDriver driver = null;
 		String email = "adam"+numero+"@guru.ie";
 		System.out.println(email);
 		
-		
+		String address = "47 Testing Road";
+		String city = "Dublin";
+		String state = "Dublin";
+		String pin = "123456";
+		String mobilen = "1234567";
+		String password = "1234567";
 		
 		
 		//Enter Customer Name
@@ -81,31 +87,31 @@ public static WebDriver driver = null;
 		driver.findElement(By.xpath("/html/body/table/tbody/tr/td/table/tbody/tr[5]/td[2]/input[1]")).click();
 		
 		//Enter DOB
-		driver.findElement(By.id("dob")).sendKeys("01/01/1991");
+		driver.findElement(By.id("dob")).sendKeys(dob);
 		
 		//Enter Address
-		driver.findElement(By.name("addr")).sendKeys("47 Testing Road");
+		driver.findElement(By.name("addr")).sendKeys(address);
 		
 		//Enter City
-		driver.findElement(By.name("city")).sendKeys("Dublin");
+		driver.findElement(By.name("city")).sendKeys(city);
 		
 		//Enter State
-		driver.findElement(By.name("state")).sendKeys("Dublin");
+		driver.findElement(By.name("state")).sendKeys(state);
 		
 		//Enter PIN
-		driver.findElement(By.name("pinno")).sendKeys("123456");
+		driver.findElement(By.name("pinno")).sendKeys(pin);
 		
 		//Enter Mobile Number
-		driver.findElement(By.name("telephoneno")).sendKeys("1234567");
+		driver.findElement(By.name("telephoneno")).sendKeys(mobilen);
 		
 		//Enter Email
 		driver.findElement(By.name("emailid")).sendKeys(email);
 		
 		//Enter Password
-		driver.findElement(By.name("password")).sendKeys("1234567");
+		driver.findElement(By.name("password")).sendKeys(password);
 		
 		//Click on Submit
-		driver.findElement(By.name("sub")).click();
+		//driver.findElement(By.name("sub")).click();
 		
 		
 		///Test Results

@@ -1,0 +1,116 @@
+
+import static org.junit.Assert.assertEquals;
+
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.MethodOrderer;
+import org.junit.jupiter.api.Order;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestMethodOrder;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+/* Projeto - WeAreNerd
+		- Package (dafault)- Casos de Test
+			- Classe (Scenarios de Test)
+				- Metodos (Test Cases) */
+	
+	//tudo que eu colocar aqui nao sera compilado
+
+
+//Aqui comeca a classe Login Functionality
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
+public class LoginFunctionality {
+
+	
+	@BeforeAll
+	public static void beforeAll() {
+		//TVN - configuracao do browser para utilizar a mesma versao do webdriver
+		WebDriverManager.chromedriver().setup();
+		
+		//Inicializando o webdriver para usar o Chrome
+		TestData.driver = new ChromeDriver();
+	}
+	
+	@AfterAll
+	public static void afterAll() {
+		TestData.driver.quit();
+	}
+	
+	@Test
+	@Order(1)
+	public void tc001() throws InterruptedException {
+		
+		//Abrir a URL do Guru99
+		TestData.driver.get("http://demo.guru99.com/v4");
+		Thread.sleep(3000);
+		TestData.driver.switchTo().frame("gdpr-consent-notice").findElement(By.id("save")).click();
+		Thread.sleep(1000);
+		
+		//------------------------
+		// TEST STEPS
+		//------------------------
+		
+		//Enter UserID
+		TestData.driver.findElement(By.name("uid")).sendKeys("mngr490401");
+		
+		//Enter Password
+		TestData.driver.findElement(By.name("password")).sendKeys("egyjEva");
+		
+		//Click on Submit
+		TestData.driver.findElement(By.name("btnLogin")).click();
+		
+		//RESULTADOS ESPERADO
+		String expectedResults = "Welcome To Manager's Page of Guru99 Bank";
+		
+		//ACTUAL RESULTS
+		String actualResults = TestData.driver.findElement(By.cssSelector("body > table > tbody > tr > td > table > tbody > tr:nth-child(2) > td > marquee")).getText();
+		
+		//TEST RESULT
+		assertEquals(expectedResults,actualResults);
+		
+		
+		
+	}
+	
+	
+	@Test
+	@Order(2)
+	public void tc002() throws InterruptedException {
+		//caso de test 002
+		//Abrir a URL do Guru99
+		TestData.driver.get("http://demo.guru99.com/v4");
+		//Thread.sleep(3000);
+		//driver.switchTo().frame("gdpr-consent-notice").findElement(By.id("save")).click();
+		//Thread.sleep(1000);
+		
+		//------------------------
+		// TEST STEPS
+		//------------------------
+		
+		//Enter UserID
+		TestData.driver.findElement(By.name("uid")).sendKeys("mngr490401");
+		
+		//Enter Password
+		TestData.driver.findElement(By.name("password")).sendKeys("egyjEva");
+		
+		//Click on Submit
+		TestData.driver.findElement(By.name("btnLogin")).click();
+		
+		
+		//RESULTADO ESPERADO
+		String expectedResults = "https://demo.guru99.com/v4/manager/Managerhomepage.php";
+		
+		//ACTUAL RESULTS
+		String actualResults = TestData.driver.getCurrentUrl();
+		
+		//TEST RESULT
+		assertEquals(expectedResults,actualResults);
+		
+	}
+	
+	
+}

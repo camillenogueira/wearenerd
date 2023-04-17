@@ -10,33 +10,33 @@ public class TestData {
 	public static WebDriver driver = null;
 	
 	//Customer Data
-	String customerName = "Camille";
-	String dob = "02/09/1991";
+	public static String customerName = "Camille";
+	public static String dob = "02/09/1991";
 	//CONVERT DATE
-	SimpleDateFormat date_sendKeys = new SimpleDateFormat("dd/mm/yyyy");
-	SimpleDateFormat date_actualResults = new SimpleDateFormat("yyyy-mm-dd");
+	public static SimpleDateFormat date_sendKeys = new SimpleDateFormat("dd/mm/yyyy");
+	public static SimpleDateFormat date_actualResults = new SimpleDateFormat("yyyy-mm-dd");
 	//Date date = date_sendKeys.parse(dob);
-	String output = date_actualResults.format(dob);
+	public static String output = date_actualResults.format(dob);
 	//System.out.println(output);
 	
 	
 	//Gerando numeros aleatorios
-	Random rand = new Random();
-	int upperbound = 10000;
-	int numero = rand.nextInt(upperbound);
+	public static Random rand = new Random();
+	public static int upperbound = 10000;
+	public static int numero = rand.nextInt(upperbound);
 	//System.out.println(numero);
 	
 	//Email
-	String email = "adam"+numero+"@guru.ie";
+	public static String email = "adam"+numero+"@guru.ie";
 	//System.out.println(email);
 	
-	String gender = "female";
-	String address = "47 Testing Road";
-	String city = "Dublin";
-	String state = "Dublin";
-	String pin = "123456";
-	String mobilen = "1234567";
-	String password = "1234567";
+	public static String gender = "female";
+	public static String address = "47 Testing Road";
+	public static String city = "Dublin";
+	public static String state = "Dublin";
+	public static String pin = "123456";
+	public static String mobilen = "1234567";
+	public static String password = "1234567";
 	
 	public static void login() throws InterruptedException {
 		//Abrir a URL do Guru99
